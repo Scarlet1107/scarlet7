@@ -128,7 +128,9 @@ const StarField = () => {
     };
   }, []);
 
-  return <div className="w-full h-screen fixed" ref={mountRef} />;
+  return (
+    <div className="w-full h-screen fixed pointer-events-none" ref={mountRef} />
+  );
 };
 
 export default StarField;
