@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Webkit系 (Chrome, Safari, Edgeなど) */
+::-webkit-scrollbar {
+  width: 12px; /* 横スクロールバーの場合は height */
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5; /* 薄い灰色 */
+  border-radius: 10px; /* 角丸 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c0c0c0; /* 少し濃い灰色 */
+  border-radius: 10px; /* 角丸 */
+  border: 3px solid #f5f5f5; /* トラック背景と隙間を作る */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8; /* ホバー時に濃くなる */
+}
+
+/* Firefox */
+html {
+  scrollbar-color: #c0c0c0 #f5f5f5; /* thumb (濃い灰色), track (薄い灰色) */
+  scrollbar-width: thin; /* 細めのスクロールバー */
+  scroll-behavior: smooth; /* スムーズスクロール */
+}
