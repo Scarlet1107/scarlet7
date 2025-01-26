@@ -11,6 +11,10 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        scarlet: {
+          DEFAULT: "#FF2400",
+          dark: "#560319",
+        },
       },
     },
   },
