@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import FadeIn from "../motion/FadeIn";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,33 +13,32 @@ const Navbar = () => {
   };
 
   const items = [
-    { title: "Home", href: "#" },
-    { title: "アプリ紹介", href: "#app" },
-    { title: "About Me", href: "#about" },
-    { title: "技術スタック", href: "#tech" },
-    { title: "Contact", href: "#contact" },
+    { title: "App Overview", href: "#app" }, // アプリ紹介
+    { title: "About Us", href: "#about" }, // About
+    { title: "Tech Stack", href: "#tech" }, // 技術スタック
+    { title: "Contact Us", href: "#contact" }, // Contact
   ];
-
   return (
     <>
       <nav className="text-white fixed top-0 left-0 right-0 z-50">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
+            <FadeIn>
               <Link href="#" className="text-xl font-bold">
                 Scarlet.net
               </Link>
-            </div>
+            </FadeIn>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 {items.map((item, index) => (
-                  <Link
-                    key={index}
-                    href={item.href}
-                    className="px-3 py-2 rounded-md font-medium text-lg before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-scarlet before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full"
-                  >
-                    {item.title}
-                  </Link>
+                  <FadeIn key={index}>
+                    <Link
+                      href={item.href}
+                      className="px-3 py-2 rounded-md font-medium text-lg before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-scarlet before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full"
+                    >
+                      {item.title}
+                    </Link>
+                  </FadeIn>
                 ))}
               </div>
             </div>
@@ -57,21 +58,39 @@ const Navbar = () => {
           </div>
         </div>
 
-        {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {items.map((item, index) => (
-                <Link
-                  key={index}
-                  href={item.href}
-                  className="bg-gray-700 block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className="md:hidden"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                {items.map((item, index) => (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{
+                      duration: 0.3,
+                      delay: index * 0.1,
+                    }}
+                  >
+                    <Link
+                      href={item.href}
+                      className="bg-gray-700 block px-3 py-2 rounded-md text-base font-medium"
+                    >
+                      {item.title}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
       <div className="h-16"></div>
     </>
