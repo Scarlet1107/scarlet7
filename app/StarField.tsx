@@ -122,12 +122,13 @@ const StarField = () => {
       geometry.dispose();
       material.dispose();
       if (mountRef.current?.contains(renderer.domElement)) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         mountRef.current.removeChild(renderer.domElement);
       }
     };
   }, []);
 
-  return <div className="w-full h-screen" ref={mountRef} />;
+  return <div className="w-full h-screen fixed" ref={mountRef} />;
 };
 
 export default StarField;
