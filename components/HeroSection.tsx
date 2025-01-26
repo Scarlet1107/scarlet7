@@ -9,6 +9,7 @@ const HeroSection = () => {
     >
       <FadeIn>
         <h2 className="text-6xl font-semibold">Welcome to my page</h2>
+        <br />
         <h2 className="text-6xl font-semibold">
           I am Scarlet, a full-stack developer
         </h2>
