@@ -84,7 +84,7 @@ const StarField = () => {
 
     // アニメーションループ
     let reqId: number;
-    const speed = 0.5; // 星が手前に来る速度
+    const speed = 0.2; // 星が手前に来る速度
     const zThreshold = 50; // ある程度手前を通過したら再配置する閾値
 
     const animate = () => {
