@@ -14,17 +14,17 @@ const Navbar = () => {
 
   const items = [
     { title: "App Overview", href: "#app" }, // アプリ紹介
-    { title: "About Us", href: "#about" }, // About
+    { title: "About", href: "#about" }, // About
     { title: "Tech Stack", href: "#tech" }, // 技術スタック
-    { title: "Contact Us", href: "#contact" }, // Contact
+    { title: "Contact", href: "#contact" }, // Contact
   ];
   return (
     <>
       <nav className="text-white fixed top-0 left-0 right-0 z-50">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-          <div className="flex items-center justify-between h-16">
+        <div className="mx-auto">
+          <div className="flex items-center justify-between px-4 md:px-0 md:justify-around h-16">
             <FadeIn>
-              <Link href="#" className="text-xl font-bold">
+              <Link href="#home" className="text-xl font-bold">
                 Scarlet.net
               </Link>
             </FadeIn>
