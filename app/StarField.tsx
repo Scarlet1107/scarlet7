@@ -38,7 +38,8 @@ const StarField = () => {
     camera.position.copy(cameraPosition);
 
     // レンダラー
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setClearColor(0x000000, 0); // 背景を透明に
     renderer.setSize(
       mountRef.current.clientWidth,
       mountRef.current.clientHeight
