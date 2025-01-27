@@ -20,16 +20,26 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Mail } from "lucide-react";
+import { Loader2, Mail } from "lucide-react";
+import { senderEmail } from "@/constants/email";
+
+// フォームの型定義
+type FormDataType = {
+  name: string;
+  email: string;
+  message: string;
+};
 
 const Contact = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormDataType>({
     name: "",
     email: "",
     message: "",
   });
+  const [isSending, setIsSending] = useState(false);
 
+  // フォーム入力ハンドラ
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -37,17 +47,42 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // 確認用ダイアログを開く
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsDialogOpen(true);
   };
 
-  const sendMessage = () => {
-    // ここに実際のメッセージ送信ロジックを実装します
-    console.log("Sending message:", formData);
-    setIsDialogOpen(false);
-    // フォームをリセット
-    setFormData({ name: "", email: "", message: "" });
+  // メール送信を行う関数(API呼び出し)
+  const sendMessage = async () => {
+    setIsSending(true);
+    try {
+      // 送信中フラグを立てる
+      // API呼び出し
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        // エラー処理(例: ステータスコード500など)
+        console.error("fail to send email");
+      } else {
+        console.log("success to send email");
+      }
+    } catch (error) {
+      console.error("Fetch error:", error);
+    } finally {
+      // ダイアログを閉じる
+      setIsDialogOpen(false);
+      // フォームをリセット
+      setFormData({ name: "", email: "", message: "" });
+      // 送信中フラグを下げる
+      setIsSending(false);
+    }
   };
 
   return (
@@ -65,7 +100,7 @@ const Contact = () => {
           <CardContent>
             <div className="flex items-center justify-center space-x-2 mb-6">
               <Mail className="h-5 w-5 text-muted-foreground" />
-              <p className="text-muted-foreground">scarlet.second@gmail.com</p>
+              <p className="text-muted-foreground">{senderEmail}</p>
             </div>
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
@@ -91,8 +126,15 @@ const Contact = () => {
                 onChange={handleInputChange}
                 required
               />
-              <Button type="submit" className="w-full">
-                Send Message
+              <Button type="submit" className="w-full" disabled={isSending}>
+                {isSending ? (
+                  <>
+                    <Loader2 className="animate-spin text-blue-500" />
+                    <span>sending...</span>
+                  </>
+                ) : (
+                  <span>Send Message</span>
+                )}
               </Button>
             </form>
           </CardContent>
@@ -120,7 +162,16 @@ const Contact = () => {
             <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
               Cancel
             </Button>
-            <Button onClick={sendMessage}>Confirm and Send</Button>
+            <Button onClick={sendMessage}>
+              {isSending ? (
+                <>
+                  <Loader2 className="animate-spin text-blue-500" />
+                  Sending...
+                </>
+              ) : (
+                <>Confirm and Send</>
+              )}
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
