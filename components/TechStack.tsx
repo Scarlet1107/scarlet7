@@ -100,7 +100,7 @@ const TechStack = () => {
   };
 
   return (
-    <section id="tech" className="section-container relative">
+    <section id="tech" className="section-container">
       <h2 className="text-title mb-8">Tech Stack</h2>
       <Tabs defaultValue="all" className="w-full">
         <FadeIn delay={0.3}>

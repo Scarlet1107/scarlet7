@@ -82,6 +82,7 @@ const Navbar = () => {
                     <Link
                       href={item.href}
                       className="bg-gray-700 block px-3 py-2 rounded-md text-base font-medium"
+                      onClick={toggleMenu}
                     >
                       {item.title}
                     </Link>
