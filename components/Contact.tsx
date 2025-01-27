@@ -23,6 +23,7 @@ import {
 import { Loader2, Mail } from "lucide-react";
 import { senderEmail } from "@/constants/email";
 import FadeIn from "./motion/FadeIn";
+import { useToast } from "@/hooks/use-toast";
 
 // フォームの型定義
 type FormDataType = {
@@ -39,6 +40,7 @@ const Contact = () => {
     message: "",
   });
   const [isSending, setIsSending] = useState(false);
+  const { toast } = useToast();
 
   // フォーム入力ハンドラ
   const handleInputChange = (
@@ -72,7 +74,10 @@ const Contact = () => {
         // エラー処理(例: ステータスコード500など)
         console.error("fail to send email");
       } else {
-        console.log("success to send email");
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your inquiry.",
+        });
       }
     } catch (error) {
       console.error("Fetch error:", error);
@@ -96,7 +101,8 @@ const Contact = () => {
                 Contact
               </CardTitle>
               <CardDescription className="text-center mt-2">
-                Feel free to contact me if you have any questions or suggestions.
+                Feel free to contact me if you have any questions or
+                suggestions.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -165,7 +171,7 @@ const Contact = () => {
             <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
               Cancel
             </Button>
-            <Button onClick={sendMessage}>
+            <Button onClick={sendMessage} disabled={isSending}>
               {isSending ? (
                 <>
                   <Loader2 className="animate-spin text-blue-500" />
