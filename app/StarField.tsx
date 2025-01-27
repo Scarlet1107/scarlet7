@@ -62,21 +62,48 @@ const StarField = () => {
     const starCount = 5000;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(starCount * 3);
+    const colors = new Float32Array(starCount * 3); // 各頂点ごとの色
 
-    // 初期配置：カメラ近く(minDistance以内)を避けて生成
     for (let i = 0; i < starCount; i++) {
+      // 位置を設定
       const pos = getRandomPositionOutsideCamera(minDistance);
       positions[i * 3 + 0] = pos.x;
       positions[i * 3 + 1] = pos.y;
       positions[i * 3 + 2] = pos.z;
+
+      // 色をランダム設定 (5% 赤, 5% 青, 5%黄色, 残り75% 白)
+      const r = Math.random();
+      if (r < 0.05) {
+        // 赤 (1,0,0)
+        colors[i * 3 + 0] = 1;
+        colors[i * 3 + 1] = 0.66;
+        colors[i * 3 + 2] = 0.66;
+      } else if (r < 0.1) {
+        // 青 (0,0,1)
+        colors[i * 3 + 0] = 0.66;
+        colors[i * 3 + 1] = 0.75;
+        colors[i * 3 + 2] = 1;
+      } else if (r < 0.15) {
+        // 黄 (1,0.96,0.66)
+        colors[i * 3 + 0] = 1;
+        colors[i * 3 + 1] = 0.96;
+        colors[i * 3 + 2] = 0.66;
+      } else {
+        // 白 (1,1,1)
+        colors[i * 3 + 0] = 1;
+        colors[i * 3 + 1] = 1;
+        colors[i * 3 + 2] = 1;
+      }
     }
 
     geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
+    // 頂点カラーを使用
     const material = new THREE.PointsMaterial({
-      color: 0xffffff,
       size: 0.7,
       sizeAttenuation: true,
+      vertexColors: true, // 頂点カラーを有効に
     });
 
     const stars = new THREE.Points(geometry, material);
@@ -104,6 +131,7 @@ const StarField = () => {
           positionsArray[idx + 0] = newPos.x;
           positionsArray[idx + 1] = newPos.y;
           positionsArray[idx + 2] = newPos.z;
+          // 色は再生成せず、同じ星の色を保持
         }
       }
 
@@ -122,7 +150,6 @@ const StarField = () => {
       geometry.dispose();
       material.dispose();
       if (mountRef.current?.contains(renderer.domElement)) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         mountRef.current.removeChild(renderer.domElement);
       }
     };
