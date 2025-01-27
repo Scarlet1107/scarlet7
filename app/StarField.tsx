@@ -150,6 +150,7 @@ const StarField = () => {
       geometry.dispose();
       material.dispose();
       if (mountRef.current?.contains(renderer.domElement)) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         mountRef.current.removeChild(renderer.domElement);
       }
     };
@@ -157,7 +158,7 @@ const StarField = () => {
 
   return (
     <div
-      className="w-full h-screen fixed pointer-events-none bg-gradient-to-br from-[#0D1B2A] via-[#1B2735] to-[#01040F] -z-10"
+      className="w-full h-screen fixed pointer-events-none bg-gradient-to-br from-[#0D1B2A] via-[#1B2735] to-[#01040F] -z-10 shadow-inner-strong xl:shadow-inner-ultra"
       ref={mountRef}
     />
   );
