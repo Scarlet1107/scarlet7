@@ -12,19 +12,6 @@ interface TechStackList {
   level: number;
 }
 
-// const getLevelPercentage = (level: string) => {
-//   switch (level) {
-//     case "Advanced":
-//       return 90;
-//     case "Intermediate":
-//       return 60;
-//     case "Beginner":
-//       return 30;
-//     default:
-//       return 0;
-//   }
-// };
-
 const getLevelPercentage = (level: number) => {
   if (level > 70 && level <= 100) {
     return "Advanced";
@@ -113,9 +100,8 @@ const TechStack = () => {
   };
 
   return (
-    <section id="tech" className="section-container">
+    <section id="tech" className="section-container relative">
       <h2 className="text-title mb-8">Tech Stack</h2>
-
       <Tabs defaultValue="all" className="w-full">
         <FadeIn delay={0.3}>
           <TabsList className="grid w-full grid-cols-5 mb-8">
@@ -126,7 +112,6 @@ const TechStack = () => {
             <TabsTrigger value="cloud">Cloud</TabsTrigger>
           </TabsList>
         </FadeIn>
-
         {["all", "frontend", "backend", "languages", "cloud"].map((tab) => (
           <TabsContent key={tab} value={tab}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
