@@ -7,6 +7,12 @@ import {
   CardTitle,
   CardFooter,
 } from "@/components/ui/card";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+
 import Link from "next/link";
 import Image from "next/image";
 import FadeIn from "./motion/FadeIn";
@@ -68,15 +74,22 @@ const AppOverview = () => {
               </CardContent>
               <CardFooter>
                 {app.url && (
-                  <Link
-                    href={app.url}
-                    passHref
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="pr-2 rounded-md hover:text-blue-500 font-medium text-lg before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-blue-500 before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full"
-                  >
-                    {app.url}
-                  </Link>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Link
+                        href={app.url}
+                        passHref
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="pr-2 rounded-md hover:text-blue-500 font-medium text-lg before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-blue-500 before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full"
+                      >
+                        {app.url}
+                      </Link>
+                    </HoverCardTrigger>
+                    <HoverCardContent className="w-max h-min">
+                      実際に試してみる
+                    </HoverCardContent>
+                  </HoverCard>
                 )}
               </CardFooter>
             </Card>
