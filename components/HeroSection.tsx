@@ -8,11 +8,11 @@ const HeroSection = () => {
       id="#home"
     >
       <FadeIn>
-        <h2 className="text-6xl font-semibold">Welcome to my page</h2>
+        <h1 className="text-title font-semibold">Welcome to my page</h1>
         <br />
-        <h2 className="text-6xl font-semibold">
+        <h1 className="text-title font-semibold">
           I am Scarlet, a full-stack developer
-        </h2>
+        </h1>
       </FadeIn>
     </div>
   );

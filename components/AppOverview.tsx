@@ -45,11 +45,8 @@ const AppOverview = () => {
     },
   ];
   return (
-    <div
-      id="app"
-      className="h-screen items-center flex justify-center flex-col max-w-7xl mx-auto px-6 md:px-8 lg:px-10"
-    >
-      <h2 className="text-6xl mb-12">今まで開発したアプリ</h2>
+    <section id="app" className="section-container">
+      <h2 className="text-title">今まで開発したアプリ</h2>
       <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
         {Apps.map((app, index) => (
           <FadeIn key={index} delay={index * 0.1 + 0.3}>
@@ -70,7 +67,9 @@ const AppOverview = () => {
                 <CardDescription>{app.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="whitespace-pre-line">{app.content}</p>
+                <p className="whitespace-pre-line text-sm md:text-base">
+                  {app.content}
+                </p>
               </CardContent>
               <CardFooter>
                 {app.url && (
@@ -81,7 +80,7 @@ const AppOverview = () => {
                         passHref
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="pr-2 rounded-md hover:text-blue-500 font-medium text-lg before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-blue-500 before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full"
+                        className="pr-2 text-base rounded-md hover:text-blue-500 font-medium md:text-lg before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-blue-500 before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full"
                       >
                         {app.url}
                       </Link>
@@ -96,7 +95,7 @@ const AppOverview = () => {
           </FadeIn>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
