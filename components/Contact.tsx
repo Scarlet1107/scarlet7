@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/dialog";
 import { Loader2, Mail } from "lucide-react";
 import { senderEmail } from "@/constants/email";
+import FadeIn from "./motion/FadeIn";
 
 // フォームの型定義
 type FormDataType = {
@@ -88,57 +89,59 @@ const Contact = () => {
   return (
     <section id="contact" className="section-container">
       <div className="container mx-auto px-4">
-        <Card className="max-w-2xl mx-auto">
-          <CardHeader>
-            <CardTitle className="text-3xl font-bold text-center">
-              Contact
-            </CardTitle>
-            <CardDescription className="text-center mt-2">
-              Feel free to contact me if you have any questions or suggestions.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="flex items-center justify-center space-x-2 mb-6">
-              <Mail className="h-5 w-5 text-muted-foreground" />
-              <p className="text-muted-foreground">{senderEmail}</p>
-            </div>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <Input
-                placeholder="Your Name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-              />
-              <Input
-                placeholder="Your Email"
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-              />
-              <Textarea
-                placeholder="Message"
-                rows={6}
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                required
-              />
-              <Button type="submit" className="w-full" disabled={isSending}>
-                {isSending ? (
-                  <>
-                    <Loader2 className="animate-spin text-blue-500" />
-                    <span>sending...</span>
-                  </>
-                ) : (
-                  <span>Send Message</span>
-                )}
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
+        <FadeIn>
+          <Card className="max-w-2xl mx-auto">
+            <CardHeader>
+              <CardTitle className="text-3xl font-bold text-center">
+                Contact
+              </CardTitle>
+              <CardDescription className="text-center mt-2">
+                Feel free to contact me if you have any questions or suggestions.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center justify-center space-x-2 mb-6">
+                <Mail className="h-5 w-5 text-muted-foreground" />
+                <p className="text-muted-foreground">{senderEmail}</p>
+              </div>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <Input
+                  placeholder="Your Name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                />
+                <Input
+                  placeholder="Your Email"
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                />
+                <Textarea
+                  placeholder="Message"
+                  rows={6}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                />
+                <Button type="submit" className="w-full" disabled={isSending}>
+                  {isSending ? (
+                    <>
+                      <Loader2 className="animate-spin text-blue-500" />
+                      <span>sending...</span>
+                    </>
+                  ) : (
+                    <span>Send Message</span>
+                  )}
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </FadeIn>
       </div>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
