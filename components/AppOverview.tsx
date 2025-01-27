@@ -29,24 +29,24 @@ const AppOverview = () => {
   const Apps: App[] = [
     {
       icon: "/sugoi-mojisu-counter.png",
-      title: "すごい文字数カウント",
-      description: "趣味で開発",
+      title: "Sugoi Mojisu Counter",
+      description: "Developed as a hobby",
       content:
-        "入力した文字をカウントできます。\n目標文字数を設定することができ、現在の文字数が目標に対してどの程度なのかを視覚化する機能付きです。\nまたAIを搭載しており、入力した文字に対してのアドバイスを無料で受けることができます。",
+        "You can count the characters you input.\nYou can set a target number of characters and visualize how close you are to the target.\nIt also has AI that provides free advice on the text you input.",
       url: "https://app.scarlet7.net/word-counter",
     },
     {
       icon: "/tire-quotation-app.jpg",
-      title: "タイヤ見積もりアプリ",
-      description: "仕事で開発",
+      title: "Tire Quotation App",
+      description: "Developed for work",
       content:
-        "地域の車会社の社長から「毎回見積書をexcelで作るのが大変」という話を聞き、社内アプリとして開発しました。\nタイヤの情報をあらかじめデータベースに入れておき、条件検索をかけることで、誰でも金額の間違えなく同じクオリティの見積書が作れます。",
+        "I developed this as an internal app after hearing from the president of a local car company that creating quotations in Excel every time was a hassle.\nBy pre-entering tire information into a database and performing conditional searches, anyone can create quotations with the same quality without making mistakes in the amount.",
       url: "",
     },
   ];
   return (
     <section id="app" className="section-container">
-      <h2 className="text-title">今まで開発したアプリ</h2>
+      <h2 className="text-title">Apps Developed So Far</h2>
       <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
         {Apps.map((app, index) => (
           <FadeIn key={index} delay={index * 0.1 + 0.3}>
@@ -86,7 +86,7 @@ const AppOverview = () => {
                       </Link>
                     </HoverCardTrigger>
                     <HoverCardContent className="w-max h-min">
-                      実際に試してみる
+                      Try it out
                     </HoverCardContent>
                   </HoverCard>
                 )}
