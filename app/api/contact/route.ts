@@ -1,5 +1,5 @@
 // app/api/contact/route.ts
-import { getAdminMailOptions, getUserMailOptions } from "@/constants/email";
+import { getAdminMailOptions, getUserMailOptions } from "@/constants/contact";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
