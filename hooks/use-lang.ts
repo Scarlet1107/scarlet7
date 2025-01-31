@@ -3,6 +3,10 @@
 import { Locale, supportedLanguages } from "@/constants/language";
 import { usePathname } from "next/navigation";
 
+/**
+ * @returns "ja" | "en"
+ */
+
 export const useLocale = (): Locale => {
   const pathname = usePathname();
 
@@ -10,7 +14,5 @@ export const useLocale = (): Locale => {
   const lang = pathname.split("/")[1];
 
   // サポートされている言語であれば返し、そうでなければデフォルトを返す
-  return supportedLanguages.includes(lang as Locale)
-    ? (lang as Locale)
-    : "ja";
+  return supportedLanguages.includes(lang as Locale) ? (lang as Locale) : "ja";
 };

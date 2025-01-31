@@ -113,7 +113,7 @@ const Navbar = () => {
                   >
                     <Link
                       href={item.href}
-                      className="bg-gray-700 block px-3 py-2 rounded-md text-base font-medium flex items-center"
+                      className="bg-gray-700 px-3 py-2 rounded-md text-base font-medium flex items-center"
                       onClick={toggleMenu}
                     >
                       <item.icon className="w-5 h-5 mr-2" />
@@ -132,7 +132,7 @@ const Navbar = () => {
                 >
                   <Link
                     href={switchLanguageHref}
-                    className="bg-gray-700 block px-3 py-2 rounded-md text-base font-medium flex items-center"
+                    className="bg-gray-700 px-3 py-2 rounded-md text-base font-medium flex items-center"
                     onClick={toggleMenu}
                   >
                     <Globe className="w-5 h-5 mr-2" />
