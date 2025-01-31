@@ -25,11 +25,11 @@ const TechStack = async ({ lang }: { lang: Locale }) => {
   };
   return (
     <section id="tech" className="section-container">
-      <h2 className="text-title mb-8">{TechStack.title}</h2>
+      <h2 className="text-title mb-8 pt-8 md:pt-0">{TechStack.title}</h2>
       <Tabs defaultValue="all" className="w-full">
         <FadeIn delay={0.3}>
-          <TabsList className="grid w-full grid-cols-5 mb-8">
-            <TabsTrigger value="all">{TechStack.all}</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-4 md:grid-cols-5 mb-8">
+            <TabsTrigger value="all" className="hidden md:flex">{TechStack.all}</TabsTrigger>
             <TabsTrigger value="frontend">{TechStack.frontend}</TabsTrigger>
             <TabsTrigger value="backend">{TechStack.backend}</TabsTrigger>
             <TabsTrigger value="languages">{TechStack.languages}</TabsTrigger>
