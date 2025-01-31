@@ -46,7 +46,7 @@ const TechStack = () => {
                 )
                 .sort((a, b) => b.level - a.level)
                 .map((tech, index) => (
-                  <FadeIn key={index} delay={index * 0.1 + 0.3}>
+                  <FadeIn key={index} delay={index * 0.05 + 0.3}>
                     <Card>
                       <CardContent className="p-6">
                         <div className="flex items-center justify-between mb-4">
