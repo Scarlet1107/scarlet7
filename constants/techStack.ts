@@ -7,7 +7,7 @@ export interface TechStackList {
 export const techStackList: TechStackList[] = [
   {
     name: "React",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
     level: 90,
   },
   {
@@ -75,10 +75,28 @@ export const techStackList: TechStackList[] = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/trpc/trpc-original.svg",
     level: 40,
   },
+  {
+    name: "framermotion",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg",
+    level: 50,
+  },
+  {
+    name: "three.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/threejs/threejs-original.svg",
+    level: 40,
+  },
 ];
 export const categories = {
-  frontend: ["React", "Next.js", "JavaScript", "TypeScript", "Tailwind CSS"],
+  frontend: [
+    "React",
+    "Next.js",
+    "JavaScript",
+    "TypeScript",
+    "Tailwind CSS",
+    "three.js",
+    "framermotion",
+  ],
   backend: ["Ruby on Rails", "Laravel", "Python", "tRPC"],
-  languages: ["C", "C++", "Python", "Java"], // 汎用言語
+  languages: ["C", "C++", "Java"], // 汎用言語
   cloud: ["AWS", "Supabase"],
 };
