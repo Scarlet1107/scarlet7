@@ -55,10 +55,9 @@ const AppOverview = async ({ lang }: { lang: Locale }) => {
                     <HoverCardTrigger asChild>
                       <Link
                         href={app.url}
-                        passHref
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="pr-2 text-base rounded-md hover:text-blue-500 font-medium md:text-lg before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-blue-500 before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full"
+                        className="pr-3 py-1 rounded-md hover:text-blue-500 before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-blue-500 before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full flex items-center"
                       >
                         {app.url}
                       </Link>
