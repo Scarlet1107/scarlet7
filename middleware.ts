@@ -1,15 +1,15 @@
 import { NextURL } from "next/dist/server/web/next-url";
 import { NextResponse } from "next/server";
 
-const locales = ["en-US", "ja-JP"];
+const locales = ["en", "ja"];
 
 // Get the preferred locale, similar to the above or using a library
 function getLocale(request: { headers: { get: (arg0: string) => string } }) {
   // Example implementation to get the locale from the request headers
   const acceptLanguage = request.headers.get("accept-language");
-  if (!acceptLanguage) return "en-US"; // default locale
+  if (!acceptLanguage) return "en"; // default locale
   const preferredLocale = acceptLanguage.split(",")[0];
-  return locales.includes(preferredLocale) ? preferredLocale : "en-US";
+  return locales.includes(preferredLocale) ? preferredLocale : "en";
 }
 
 export function middleware(request: {
