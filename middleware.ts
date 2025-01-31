@@ -1,45 +1,42 @@
-import { NextURL } from "next/dist/server/web/next-url";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
 const locales = ["en", "ja"];
 
-// Get the preferred locale, similar to the above or using a library
-function getLocale(request: { headers: { get: (arg0: string) => string } }) {
-  // Example implementation to get the locale from the request headers
+function getLocale(request: NextRequest) {
   const acceptLanguage = request.headers.get("accept-language");
   if (!acceptLanguage) return "en"; // default locale
   const preferredLocale = acceptLanguage.split(",")[0];
   return locales.includes(preferredLocale) ? preferredLocale : "en";
 }
 
-export function middleware(request: {
-  nextUrl: string | NextURL | URL;
-  headers: { get: (arg0: string) => string };
-}) {
-  // Check if there is any supported locale in the pathname
-  const { pathname } =
-    request.nextUrl instanceof URL ? request.nextUrl : new URL(request.nextUrl);
+export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  // Next.js の内部リクエストを除外
+  if (
+    pathname.startsWith("/_next/") ||
+    pathname.startsWith("/api/") ||
+    pathname.startsWith("/static/") ||
+    pathname === "/favicon.ico" ||
+    pathname === "/robots.txt"
+  ) {
+    return NextResponse.next();
+  }
+
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  if (pathnameHasLocale) return;
+  if (pathnameHasLocale) return NextResponse.next();
 
-  // Redirect if there is no locale
+  // ロケールを判定
   const locale = getLocale(request);
-  if (request.nextUrl instanceof URL || request.nextUrl instanceof NextURL) {
-    request.nextUrl.pathname = `/${locale}${pathname}`;
-  }
-  // e.g. incoming request is /products
-  // The new URL is now /en-US/products
-  return NextResponse.redirect(request.nextUrl);
+
+  // リダイレクト処理
+  const newUrl = new URL(`/${locale}${pathname}`, request.nextUrl.origin);
+  return NextResponse.redirect(newUrl);
 }
 
 export const config = {
-  matcher: [
-    // Skip all internal paths (_next)
-    "/((?!_next).*)",
-    // Optional: only run on root (/) URL
-    // '/'
-  ],
+  matcher: "/((?!_next|api|static|favicon.ico|robots.txt).*)",
 };
