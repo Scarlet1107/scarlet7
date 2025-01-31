@@ -24,13 +24,16 @@ const About = async ({ lang }: { lang: Locale }) => {
                   className="rounded-full border-4 border-muted shadow-lg"
                 />
               </div>
-              <div className="flex-1 text-description">
-                <h3 className="whitespace-pre-line mb-4">{About.content}</h3>
+              <div className="flex-1">
+                <h2 className="text-2xl md:text-3xl mb-2 font-semibold">{About.greeting}</h2>
+                <h3 className="whitespace-pre-line mb-4 text-description">
+                  {About.content}
+                </h3>
                 <Link
                   href="https://github.com/Scarlet1107"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex pr-2 space-x-2 rounded-md before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-blue-500 hover:text-blue-500 before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full items-center w-max"
+                  className="flex pr-2 space-x-2 rounded-md text-description before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-blue-500 hover:text-blue-500 before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full items-center w-max"
                 >
                   <p>https://github.com/Scarlet1107</p>
                   <Image

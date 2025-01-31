@@ -40,7 +40,8 @@
   },
   "About": {
     "title": "About Me",
-    "content": "Hi, I'm Scarlet.\nI'm a web engineer focused on developing web applications. I primarily use React, Next.js, and TypeScript to create user-friendly applications.\nI enjoy coding as a hobby while also taking on freelance projects and have experience launching a SaaS product at a startup. I'm always exploring new technologies and striving to build better products.\nI have published the app I developed on GitHub, so feel free to check it out!"
+    "greeting": "Hi, I'm Scarlet.",
+    "content": "I'm a web engineer focused on developing web applications. I primarily use React, Next.js, and TypeScript to create user-friendly applications.\nI enjoy coding as a hobby while also taking on freelance projects and have experience launching a SaaS product at a startup. I'm always exploring new technologies and striving to build better products.\nI have published the app I developed on GitHub, so feel free to check it out!"
   },
   "Contact": {
     "title": "Contact",
