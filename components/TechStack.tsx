@@ -7,6 +7,7 @@ import FadeIn from "./motion/FadeIn";
 import Image from "next/image";
 import { categories, techStackList } from "@/constants/techStack";
 
+
 const getLevelPercentage = (level: number) => {
   if (level > 70 && level <= 100) {
     return "Advanced";

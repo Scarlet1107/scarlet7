@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import DictionaryProvider from "@/context/dictionary-provider";
+import { getDictionary } from "@/lib/getDictionary";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -48,12 +50,15 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { lang: "ja" | "en" };
 }>) {
+  const dictionary = await getDictionary(params.lang);
   return (
     <html lang={params.lang}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <DictionaryProvider dictionary={dictionary}>
+          {children}
+        </DictionaryProvider>
         <Toaster />
       </body>
     </html>

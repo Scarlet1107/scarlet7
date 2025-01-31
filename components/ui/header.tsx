@@ -12,6 +12,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useLocale } from "@/hooks/use-lang";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,15 +22,25 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const items = [
-    { title: "App Overview", href: "#app", icon: Home },
-    { title: "About", href: "#about", icon: Info },
-    { title: "Tech Stack", href: "#tech", icon: Code },
-    { title: "Contact", href: "#contact", icon: Mail },
-  ];
+  const lang = useLocale();
+
+  const items =
+    lang === "en"
+      ? [
+          { title: "App Overview", href: "#app", icon: Home },
+          { title: "About", href: "#about", icon: Info },
+          { title: "Tech Stack", href: "#tech", icon: Code },
+          { title: "Contact", href: "#contact", icon: Mail },
+        ]
+      : [
+          { title: "アプリ概要", href: "#app", icon: Home },
+          { title: "概要", href: "#about", icon: Info },
+          { title: "技術スタック", href: "#tech", icon: Code },
+          { title: "お問い合わせ", href: "#contact", icon: Mail },
+        ];
 
   const isJapanese = pathname.startsWith("/ja");
-  const switchLanguageText = isJapanese ? "Switch to English" : "日本語で表示";
+  const switchLanguageText = isJapanese ? "English" : "日本語";
   const switchLanguageHref = isJapanese
     ? pathname.replace(/^\/ja/, "/en")
     : pathname.replace(/^\/en/, "/ja");

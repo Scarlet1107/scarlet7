@@ -1,7 +1,20 @@
 {
-    "apple": "A fruit that is typically red, green, or yellow and has a crisp, juicy flesh.",
-    "book": "A set of written, printed, or blank pages fastened together along one side and encased between protective covers.",
-    "cat": "A small domesticated carnivorous mammal with soft fur, a short snout, and retractile claws.",
-    "dog": "A domesticated carnivorous mammal that typically has a long snout, an acute sense of smell, and a barking, howling, or whining voice.",
-    "elephant": "A large herbivorous mammal noted for its long trunk, columnar legs, and ivory tusks."
+  "language": "Language",
+  "languages": {
+    "en": "English",
+    "ja": "Japanese"
+  },
+  "header": {
+    "AppOverview": "App Overview",
+    "About": "About",
+    "TechStack": "Tech Stack",
+    "Contact": "Contact"
+  },
+  "TechStack": {
+    "all": "All",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "Languages": "Languages",
+    "Cloud": "Cloud"
+  }
 }
