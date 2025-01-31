@@ -1,23 +1,39 @@
 "use client";
+
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { usePathname } from "next/navigation";
+import { Menu, X, Home, Info, Code, Mail, Globe } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import FadeIn from "../motion/FadeIn";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   const items = [
-    { title: "App Overview", href: "#app" }, // アプリ紹介
-    { title: "About", href: "#about" }, // About
-    { title: "Tech Stack", href: "#tech" }, // 技術スタック
-    { title: "Contact", href: "#contact" }, // Contact
+    { title: "App Overview", href: "#app", icon: Home },
+    { title: "About", href: "#about", icon: Info },
+    { title: "Tech Stack", href: "#tech", icon: Code },
+    { title: "Contact", href: "#contact", icon: Mail },
   ];
+
+  const isJapanese = pathname.startsWith("/ja");
+  const switchLanguageText = isJapanese ? "Switch to English" : "日本語で表示";
+  const switchLanguageHref = isJapanese
+    ? pathname.replace(/^\/ja/, "/en")
+    : pathname.replace(/^\/en/, "/ja");
+
   return (
     <>
       <nav className="text-white fixed top-0 left-0 right-0 z-50">
@@ -34,12 +50,28 @@ const Navbar = () => {
                   <FadeIn key={index}>
                     <Link
                       href={item.href}
-                      className="px-3 py-2 rounded-md font-medium text-lg before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-scarlet before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full"
+                      className="px-3 py-2 rounded-md font-medium text-lg before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-scarlet before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full flex items-center"
                     >
+                      <item.icon className="w-5 h-5 mr-2" />
                       {item.title}
                     </Link>
                   </FadeIn>
                 ))}
+                <FadeIn>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="px-3 py-2 rounded-md font-medium text-lg flex items-center">
+                      <Globe className="w-5 h-5 mr-2" />
+                      Language
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      <DropdownMenuItem>
+                        <Link href={switchLanguageHref} className="w-full">
+                          {switchLanguageText}
+                        </Link>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </FadeIn>
               </div>
             </div>
             <div className="md:hidden">
@@ -81,13 +113,32 @@ const Navbar = () => {
                   >
                     <Link
                       href={item.href}
-                      className="bg-gray-700 block px-3 py-2 rounded-md text-base font-medium"
+                      className="bg-gray-700 block px-3 py-2 rounded-md text-base font-medium flex items-center"
                       onClick={toggleMenu}
                     >
+                      <item.icon className="w-5 h-5 mr-2" />
                       {item.title}
                     </Link>
                   </motion.div>
                 ))}
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: items.length * 0.1,
+                  }}
+                >
+                  <Link
+                    href={switchLanguageHref}
+                    className="bg-gray-700 block px-3 py-2 rounded-md text-base font-medium flex items-center"
+                    onClick={toggleMenu}
+                  >
+                    <Globe className="w-5 h-5 mr-2" />
+                    {switchLanguageText}
+                  </Link>
+                </motion.div>
               </div>
             </motion.div>
           )}
