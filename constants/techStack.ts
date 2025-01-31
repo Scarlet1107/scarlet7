@@ -53,7 +53,7 @@ export const techStackList: TechStackList[] = [
   {
     name: "AWS",
     icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
-    level: 75,
+    level: 65,
   },
   {
     name: "Ruby on Rails",
@@ -70,10 +70,15 @@ export const techStackList: TechStackList[] = [
     icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg",
     level: 60,
   },
+  {
+    name: "tRPC",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/trpc/trpc-original.svg",
+    level: 40,
+  },
 ];
 export const categories = {
   frontend: ["React", "Next.js", "JavaScript", "TypeScript", "Tailwind CSS"],
-  backend: ["Ruby on Rails", "Laravel", "Python", "Java"],
-  languages: ["C", "C++", "JavaScript", "TypeScript", "Python", "Java"],
+  backend: ["Ruby on Rails", "Laravel", "Python", "tRPC"],
+  languages: ["C", "C++", "Python", "Java"], // 汎用言語
   cloud: ["AWS", "Supabase"],
 };

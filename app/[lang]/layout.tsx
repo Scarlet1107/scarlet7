@@ -35,11 +35,28 @@ const metadataMap: Record<string, Metadata> = {
     title: "Scarlet",
     description:
       "WebエンジニアのScarletです。作ったアプリをまとめています。今まで「すごい文字数カウント」、「タイヤ見積もりアプリ」などを開発しました。Next js, React, TypeScriptメインです.お仕事の依頼はフォームからお願いします。",
+    openGraph: {
+      title: "Scarlet",
+      description:
+        "WebエンジニアのScarletです。作ったアプリをまとめています。今まで「すごい文字数カウント」、「タイヤ見積もりアプリ」などを開発しました。Next js, React, TypeScriptメインです.お仕事の依頼はフォームからお願いします。",
+      type: "website",
+      locale: "ja_JP",
+      images: [{ url: "/favicon.ico" }],
+    },
   },
   en: {
     title: "Scarlet",
     description:
       "I am Scarlet, a web engineer. Here is a collection of applications I have created. I have developed apps such as 'Amazing Word Counter' and 'Tire Estimate App'. My main focus is Next.js, React, and TypeScript. For work inquiries, please contact me via form.",
+    openGraph: {
+      title: "Scarlet",
+      description:
+        "I am Scarlet, a web engineer. Here is a collection of applications I have created. I have developed apps such as 'Amazing Word Counter' and 'Tire Estimate App'. My main focus is Next.js, React, and TypeScript. For work inquiries, please contact me via form.",
+
+      type: "website",
+      locale: "en_US",
+      images: [{ url: "/favicon.ico" }],
+    },
   },
 };
 

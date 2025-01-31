@@ -24,6 +24,7 @@ import { Loader2, Mail } from "lucide-react";
 import { senderEmail } from "@/constants/contact";
 import FadeIn from "./motion/FadeIn";
 import { useToast } from "@/hooks/use-toast";
+import { useDictionary } from "@/context/dictionary-provider";
 
 // フォームの型定義
 type FormDataType = {
@@ -41,6 +42,7 @@ const Contact = () => {
   });
   const [isSending, setIsSending] = useState(false);
   const { toast } = useToast();
+  const { Contact } = useDictionary();
 
   // フォーム入力ハンドラ
   const handleInputChange = (
@@ -98,11 +100,10 @@ const Contact = () => {
           <Card className="max-w-2xl mx-auto">
             <CardHeader>
               <CardTitle className="text-3xl font-bold text-center">
-                Contact
+                {Contact.title}
               </CardTitle>
               <CardDescription className="text-center mt-2">
-                Feel free to contact me if you have any questions or
-                suggestions.
+                {Contact.content}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -112,14 +113,14 @@ const Contact = () => {
               </div>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <Input
-                  placeholder="Your Name"
+                  placeholder={Contact.Name}
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
                   required
                 />
                 <Input
-                  placeholder="Your Email"
+                  placeholder={Contact.Email}
                   type="email"
                   name="email"
                   value={formData.email}
@@ -127,7 +128,7 @@ const Contact = () => {
                   required
                 />
                 <Textarea
-                  placeholder="Message"
+                  placeholder={Contact.Message}
                   rows={6}
                   name="message"
                   value={formData.message}
@@ -138,10 +139,10 @@ const Contact = () => {
                   {isSending ? (
                     <>
                       <Loader2 className="animate-spin text-blue-500" />
-                      <span>sending...</span>
+                      <span>{Contact["sending..."]}</span>
                     </>
                   ) : (
-                    <span>Send Message</span>
+                    <span>{Contact["Send Message"]}</span>
                   )}
                 </Button>
               </form>
@@ -153,32 +154,31 @@ const Contact = () => {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Confirm Your Message</DialogTitle>
+            <DialogTitle>{Contact["Confirm Your Message"]}</DialogTitle>
             <DialogDescription></DialogDescription>
           </DialogHeader>
-          <div className="space-y-2">
-            <p>
-              <strong>Name:</strong> {formData.name}
-            </p>
-            <p>
-              <strong>Email:</strong> {formData.email}
-            </p>
-            <p>
-              <strong>Message:</strong> {formData.message}
-            </p>
-          </div>
+          <div className="space-y-2"></div>
+          <p>
+            <strong>{Contact.Name}:</strong> {formData.name}
+          </p>
+          <p>
+            <strong>{Contact.Email}:</strong> {formData.email}
+          </p>
+          <p>
+            <strong>{Contact.Message}:</strong> {formData.message}
+          </p>
           <DialogFooter>
             <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
-              Cancel
+              {Contact.Cancel}
             </Button>
             <Button onClick={sendMessage} disabled={isSending}>
               {isSending ? (
                 <>
                   <Loader2 className="animate-spin text-blue-500" />
-                  Sending...
+                  {Contact["sending..."]}
                 </>
               ) : (
-                <>Confirm and Send</>
+                <>{Contact["Confirm and Send"]}</>
               )}
             </Button>
           </DialogFooter>

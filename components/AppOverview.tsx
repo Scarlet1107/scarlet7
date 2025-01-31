@@ -16,12 +16,15 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import FadeIn from "./motion/FadeIn";
-import { Apps } from "@/constants/appOverview";
+import { getDictionary } from "@/lib/getDictionary";
+import { Locale } from "@/constants/language";
 
-const AppOverview = () => {
+const AppOverview = async ({ lang }: { lang: Locale }) => {
+  const { AppOverview } = await getDictionary(lang);
+  const Apps = AppOverview.apps;
   return (
     <section id="app" className="section-container">
-      <h2 className="text-title">Apps Developed So Far</h2>
+      <h2 className="text-title">{AppOverview.title}</h2>
       <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
         {Apps.map((app, index) => (
           <FadeIn key={index} delay={index * 0.1 + 0.3}>

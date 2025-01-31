@@ -12,15 +12,14 @@ import { Locale } from "@/constants/language";
 export default async function Home(props: {
   params: Promise<{ lang: Locale }>;
 }) {
-  const lang = await props.params;
-  console.log(lang);
+  const { lang } = await props.params;
   return (
     <main className="w-screen min-h-screen text-white">
       <StarField />
-      <HeroSection />
-      <AppOverview />
-      <About />
-      <TechStack />
+      <HeroSection lang={lang} />
+      <AppOverview lang={lang} />
+      <TechStack lang={lang} />
+      <About lang={lang} />
       <Contact />
       <Header />
     </main>

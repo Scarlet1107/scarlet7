@@ -6,32 +6,34 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import FadeIn from "./motion/FadeIn";
 import Image from "next/image";
 import { categories, techStackList } from "@/constants/techStack";
+import { Locale } from "@/constants/language";
+import { getDictionary } from "@/lib/getDictionary";
 
+const TechStack = async ({ lang }: { lang: Locale }) => {
+  const { TechStack } = await getDictionary(lang);
 
-const getLevelPercentage = (level: number) => {
-  if (level > 70 && level <= 100) {
-    return "Advanced";
-  } else if (level > 40 && level <= 70) {
-    return "Intermediate";
-  } else if (level > 0 && level <= 40) {
-    return "Beginner";
-  } else {
-    return 0;
-  }
-};
-
-const TechStack = () => {
+  const getLevelPercentage = (level: number) => {
+    if (level > 70 && level <= 100) {
+      return `${TechStack.advanced}`;
+    } else if (level > 40 && level <= 70) {
+      return `${TechStack.intermediate}`;
+    } else if (level > 0 && level <= 40) {
+      return `${TechStack.beginner}`;
+    } else {
+      return 0;
+    }
+  };
   return (
     <section id="tech" className="section-container">
-      <h2 className="text-title mb-8">Tech Stack</h2>
+      <h2 className="text-title mb-8">{TechStack.title}</h2>
       <Tabs defaultValue="all" className="w-full">
         <FadeIn delay={0.3}>
           <TabsList className="grid w-full grid-cols-5 mb-8">
-            <TabsTrigger value="all">All</TabsTrigger>
-            <TabsTrigger value="frontend">Frontend</TabsTrigger>
-            <TabsTrigger value="backend">Backend</TabsTrigger>
-            <TabsTrigger value="languages">Languages</TabsTrigger>
-            <TabsTrigger value="cloud">Cloud</TabsTrigger>
+            <TabsTrigger value="all">{TechStack.all}</TabsTrigger>
+            <TabsTrigger value="frontend">{TechStack.frontend}</TabsTrigger>
+            <TabsTrigger value="backend">{TechStack.backend}</TabsTrigger>
+            <TabsTrigger value="languages">{TechStack.languages}</TabsTrigger>
+            <TabsTrigger value="cloud">{TechStack.cloud}</TabsTrigger>
           </TabsList>
         </FadeIn>
         {["all", "frontend", "backend", "languages", "cloud"].map((tab) => (

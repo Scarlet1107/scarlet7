@@ -23,28 +23,27 @@ const Navbar = () => {
   };
 
   const lang = useLocale();
-
   const items =
     lang === "en"
       ? [
           { title: "App Overview", href: "#app", icon: Home },
-          { title: "About", href: "#about", icon: Info },
           { title: "Tech Stack", href: "#tech", icon: Code },
+          { title: "About", href: "#about", icon: Info },
           { title: "Contact", href: "#contact", icon: Mail },
         ]
       : [
-          { title: "アプリ概要", href: "#app", icon: Home },
-          { title: "概要", href: "#about", icon: Info },
+          { title: "アプリ", href: "#app", icon: Home },
           { title: "技術スタック", href: "#tech", icon: Code },
+          { title: "プロフィール", href: "#about", icon: Info },
           { title: "お問い合わせ", href: "#contact", icon: Mail },
         ];
+  const language = lang === "en" ? "Language" : "言語";
 
-  const isJapanese = pathname.startsWith("/ja");
-  const switchLanguageText = isJapanese ? "English" : "日本語";
-  const switchLanguageHref = isJapanese
-    ? pathname.replace(/^\/ja/, "/en")
-    : pathname.replace(/^\/en/, "/ja");
-
+  const switchLanguageText = lang === "en" ? "日本語" : "English";
+  const switchLanguageHref =
+    lang === "en"
+      ? pathname.replace(/^\/en/, "/ja")
+      : pathname.replace(/^\/ja/, "/en");
   return (
     <>
       <nav className="text-white fixed top-0 left-0 right-0 z-50">
@@ -70,12 +69,12 @@ const Navbar = () => {
                 ))}
                 <FadeIn>
                   <DropdownMenu>
-                    <DropdownMenuTrigger className="px-3 py-2 rounded-md font-medium text-lg flex items-center">
+                    <DropdownMenuTrigger className="px-3 py-2 rounded-md font-medium text-lg before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-scarlet before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full flex items-center">
                       <Globe className="w-5 h-5 mr-2" />
-                      Language
+                      {language}
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
-                      <DropdownMenuItem>
+                      <DropdownMenuItem className="text-center font-semibold">
                         <Link href={switchLanguageHref} className="w-full">
                           {switchLanguageText}
                         </Link>

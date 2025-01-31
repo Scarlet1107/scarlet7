@@ -4,17 +4,55 @@
     "en": "英語",
     "ja": "日本語"
   },
-  "header": {
-    "AppOverview": "開発実績",
-    "About": "概要",
-    "TechStack": "技術スタック",
-    "Contact": "連絡先"
+  "HeroSection": {
+    "title": "ようこそ",
+    "subtitle": "フルスタックエンジニアのScarletです"
+  },
+  "AppOverview": {
+    "title": "今までに開発したアプリ",
+    "apps": [
+      {
+        "icon": "/sugoi-mojisu-counter.png",
+        "title": "すごい文字数カウント",
+        "description": "趣味で開発",
+        "content": "入力した文字をカウントできます。\n目標文字数を設定することができ、現在の文字数が目標に対してどの程度なのかを視覚化する機能付きです。\nまたAIを搭載しており、入力した文字に対してのアドバイスを無料で受けることができます。",
+        "url": "https://app.scarlet7.net/word-counter"
+      },
+      {
+        "icon": "/tire-quotation-app.jpg",
+        "title": "タイヤ見積もりアプリ",
+        "description": "仕事で開発",
+        "content": "地域の車会社の社長から「毎回見積書をexcelで作るのが大変」という話を聞き、社内アプリとして開発しました。\nタイヤの情報をあらかじめデータベースに入れておき、条件検索をかけることで、誰でも金額の間違えなく同じクオリティの見積書が作れます。",
+        "url": ""
+      }
+    ]
   },
   "TechStack": {
+    "title": "技術スタック",
     "all": "すべて",
     "frontend": "フロントエンド",
     "backend": "バックエンド",
-    "Languages": "言語",
-    "Cloud": "クラウド"
+    "languages": "汎用言語",
+    "cloud": "クラウド",
+    "advanced": "上級",
+    "intermediate": "中級",
+    "beginner": "初級"
+  },
+  "About": {
+    "title": "プロフィール",
+    "content": "こんにちは。Scarletです。\nWebアプリ開発を中心に取り組むエンジニアです。React、Next.js、TypeScript を主に活用し、ユーザーにとって使いやすいアプリを開発しています。\n趣味でも開発を楽しみながら、仕事として案件を受けたり、スタートアップでSaaSの立ち上げを経験したりと、幅広く活動しています。新しい技術を学び、より良いプロダクトを作ることを常に意識しています。"
+  },
+  "Contact": {
+    "title": "お問い合わせ",
+    "content": "お問い合わせやご質問がございましたら、お気軽にご連絡ください。",
+    "sending...": "送信中...",
+    "send": "送信",
+    "Send Message": "メッセージを送信",
+    "Confirm Your Message": "メッセージを確認",
+    "Name": "お名前",
+    "Email": "メールアドレス",
+    "Message": "メッセージ",
+    "Cancel": "キャンセル",
+    "Confirm and Send": "確認して送信"
   }
 }

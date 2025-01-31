@@ -4,17 +4,55 @@
     "en": "English",
     "ja": "Japanese"
   },
-  "header": {
-    "AppOverview": "App Overview",
-    "About": "About",
-    "TechStack": "Tech Stack",
-    "Contact": "Contact"
+  "HeroSection": {
+    "title": "Welcome to my page",
+    "subtitle": "I am Scarlet, a full-stack developer"
+  },
+  "AppOverview": {
+    "title": "Apps Developed So Far",
+    "apps": [
+      {
+        "icon": "/sugoi-mojisu-counter.png",
+        "title": "Sugoi Mojisu Counter",
+        "description": "Developed as a hobby",
+        "content": "You can count the characters you input.\nYou can set a target number of characters and visualize how close you are to the target.\nIt also has AI that provides free advice on the text you input.",
+        "url": "https://app.scarlet7.net/word-counter"
+      },
+      {
+        "icon": "/tire-quotation-app.jpg",
+        "title": "Tire Quotation App",
+        "description": "Developed for work",
+        "content": "I developed this as an internal app after hearing from the president of a local car company that creating quotations in Excel every time was a hassle.\nBy pre-entering tire information into a database and performing conditional searches, anyone can create quotations with the same quality without making mistakes in the amount.",
+        "url": ""
+      }
+    ]
   },
   "TechStack": {
+    "title": "Tech Stack",
     "all": "All",
     "frontend": "Frontend",
     "backend": "Backend",
-    "Languages": "Languages",
-    "Cloud": "Cloud"
+    "languages": "Systems Programming",
+    "cloud": "Cloud",
+    "advanced": "Advanced",
+    "intermediate": "Intermediate",
+    "beginner": "Beginner"
+  },
+  "About": {
+    "title": "About Me",
+    "content": "Hi, I'm Scarlet.\nI'm a web engineer focused on developing web applications. I primarily use React, Next.js, and TypeScript to create user-friendly applications.\nI enjoy coding as a hobby while also taking on freelance projects and have experience launching a SaaS product at a startup. I'm always exploring new technologies and striving to build better products."
+  },
+  "Contact": {
+    "title": "Contact",
+    "content": "Feel free to contact me if you have any questions or suggestions.",
+    "sending...": "Sending...",
+    "send": "Send",
+    "Send Message": "Send Message",
+    "Confirm Your Message": "Confirm Your Message",
+    "Name": "Name",
+    "Email": "Email",
+    "Message": "Message",
+    "Cancel": "Cancel",
+    "Confirm and Send": "Confirm and Send"
   }
 }
