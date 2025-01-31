@@ -7,7 +7,7 @@ import AppOverview from "@/components/AppOverview";
 import About from "@/components/About";
 import TechStack from "@/components/TechStack";
 import Contact from "@/components/Contact";
-import { Locale } from "@/i18n-config";
+import { Locale } from "@/constants/language";
 
 export default async function Home(props: {
   params: Promise<{ lang: Locale }>;
