@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Card,
   CardContent,
@@ -35,14 +35,24 @@ type FormDataType = {
 
 const Contact = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [formData, setFormData] = useState<FormDataType>({
-    name: "",
-    email: "",
-    message: "",
+  const [formData, setFormData] = useState<FormDataType>(() => {
+    if (typeof window !== "undefined") {
+      const storedData = sessionStorage.getItem("formData");
+      return storedData
+        ? JSON.parse(storedData)
+        : { name: "", email: "", message: "" };
+    }
+    // サーバー側ではデフォルト値を返す
+    return { name: "", email: "", message: "" };
   });
   const [isSending, setIsSending] = useState(false);
   const { toast } = useToast();
   const { Contact } = useDictionary();
+
+  // フォームデータをセッションストレージに保存
+  useEffect(() => {
+    sessionStorage.setItem("formData", JSON.stringify(formData));
+  }, [formData]);
 
   // フォーム入力ハンドラ
   const handleInputChange = (
