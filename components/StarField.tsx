@@ -59,7 +59,9 @@ const StarField = () => {
     window.addEventListener("resize", handleResize);
 
     // 星の生成
-    const starCount = 5000;
+    const windowSize = window.screen.width;
+    const maxStarCount = 5000;
+    const starCount = Math.max(windowSize * 2, maxStarCount); // 画面サイズに応じて星の数を調整
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(starCount * 3);
     const colors = new Float32Array(starCount * 3); // 各頂点ごとの色

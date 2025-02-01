@@ -65,6 +65,15 @@ const config: Config = {
         "inner-strong": "inset 0 30px 50px rgba(0, 0, 0, 0.8)", // 強いinner shadow
         "inner-ultra": "inset 0 70px 900px rgba(0, 0, 0, 0.8)", // 強いinner shadow
       },
+      keyframes: {
+        fadeUp: {
+          "0%": { opacity: "0", transform: "translateY(35px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        fadeUp: "fadeUp 1s ease-out forwards",
+      },
     },
   },
   plugins: [animatePlugin],

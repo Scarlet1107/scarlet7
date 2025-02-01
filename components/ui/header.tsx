@@ -5,7 +5,6 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, Home, Info, Code, Mail, Globe } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import FadeIn from "../motion/FadeIn";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -49,39 +48,34 @@ const Navbar = () => {
       <nav className="text-white fixed top-0 left-0 right-0 z-50">
         <div className="mx-auto">
           <div className="flex items-center justify-between px-4 md:px-0 md:justify-around h-16">
-            <FadeIn>
-              <Link href="#home" className="text-xl font-bold">
-                Scarlet.net
-              </Link>
-            </FadeIn>
+            <Link href="#home" className="text-xl font-bold animate-fadeUp">
+              Scarlet.net
+            </Link>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 {items.map((item, index) => (
-                  <FadeIn key={index}>
-                    <Link
-                      href={item.href}
-                      className="px-3 py-2 rounded-md font-medium text-lg before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-scarlet before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full flex items-center"
-                    >
-                      <item.icon className="w-5 h-5 mr-2" />
-                      {item.title}
-                    </Link>
-                  </FadeIn>
+                  <Link
+                    key={index}
+                    href={item.href}
+                    className="animate-fadeUp px-3 py-2 rounded-md font-medium text-lg before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-scarlet before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full flex items-center"
+                  >
+                    <item.icon className="w-5 h-5 mr-2" />
+                    {item.title}
+                  </Link>
                 ))}
-                <FadeIn>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger className="px-3 py-2 rounded-md font-medium text-lg before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-scarlet before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full flex items-center">
-                      <Globe className="w-5 h-5 mr-2" />
-                      {language}
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent>
-                      <DropdownMenuItem className="text-center font-semibold">
-                        <Link href={switchLanguageHref} className="w-full">
-                          {switchLanguageText}
-                        </Link>
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </FadeIn>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="animate-fadeUp px-3 py-2 rounded-md font-medium text-lg before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-scarlet before:transition-all before:duration-300 relative before:ease-in-out hover:before:w-full flex items-center">
+                    <Globe className="w-5 h-5 mr-2" />
+                    {language}
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem className="text-center font-semibold">
+                      <Link href={switchLanguageHref} className="w-full">
+                        {switchLanguageText}
+                      </Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
             </div>
             <div className="md:hidden">
