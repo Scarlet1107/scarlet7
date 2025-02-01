@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import FadeIn from "./motion/FadeIn";
+import FadeIn from "../motion/FadeIn";
 import Image from "next/image";
 import { categories, techStackList } from "@/constants/techStack";
 import { Locale } from "@/constants/language";

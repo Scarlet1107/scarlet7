@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import FadeIn from "./motion/FadeIn";
+import FadeIn from "../motion/FadeIn";
 import { Locale } from "@/constants/language";
 import { getDictionary } from "@/lib/getDictionary";
 import Link from "next/link";

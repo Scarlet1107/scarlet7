@@ -1,11 +1,11 @@
 import React from "react";
 import dynamic from "next/dynamic";
-import Header from "@/components/ui/header";
-import HeroSection from "@/components/HeroSection";
-import AppOverview from "@/components/AppOverview";
-import About from "@/components/About";
-import TechStack from "@/components/TechStack";
-import Contact from "@/components/Contact";
+import Header from "@/components/section/Header";
+import HeroSection from "@/components/section/HeroSection";
+import AppOverview from "@/components/section/AppOverview";
+import About from "@/components/section/About";
+import TechStack from "@/components/section/TechStack";
+import Contact from "@/components/section/Contact";
 import { Locale } from "@/constants/language";
 import StarFieldLoading from "@/components/StarFieldLoading";
 

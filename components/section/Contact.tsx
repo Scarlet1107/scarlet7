@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/dialog";
 import { Loader2, Mail } from "lucide-react";
 import { senderEmail } from "@/constants/contact";
-import FadeIn from "./motion/FadeIn";
+import FadeIn from "../motion/FadeIn";
 import { useToast } from "@/hooks/use-toast";
 import { useDictionary } from "@/context/dictionary-provider";
 

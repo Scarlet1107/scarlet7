@@ -22,6 +22,7 @@ const Navbar = () => {
   };
 
   const lang = useLocale();
+  // dictionaryに移動
   const items =
     lang === "en"
       ? [

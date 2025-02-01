@@ -15,7 +15,7 @@ import {
 
 import Link from "next/link";
 import Image from "next/image";
-import FadeIn from "./motion/FadeIn";
+import FadeIn from "../motion/FadeIn";
 import { getDictionary } from "@/lib/getDictionary";
 import { Locale } from "@/constants/language";
 
