@@ -10,7 +10,7 @@ const About = async ({ lang }: { lang: Locale }) => {
   const { About } = await getDictionary(lang);
   return (
     <section id="about" className="section-container">
-      <h2 className="text-title">{About.title}</h2>
+      <h2 className="text-title mb-8 pt-8 md:pt-0">{About.title}</h2>
       <FadeIn>
         <Card className="w-full">
           <CardContent className="p-6">
@@ -25,7 +25,9 @@ const About = async ({ lang }: { lang: Locale }) => {
                 />
               </div>
               <div className="flex-1">
-                <h2 className="text-2xl md:text-3xl mb-2 font-semibold">{About.greeting}</h2>
+                <h2 className="text-2xl md:text-3xl mb-2 font-semibold">
+                  {About.greeting}
+                </h2>
                 <h3 className="whitespace-pre-line mb-4 text-description">
                   {About.content}
                 </h3>

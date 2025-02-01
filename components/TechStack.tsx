@@ -27,14 +27,22 @@ const TechStack = async ({ lang }: { lang: Locale }) => {
     <section id="tech" className="section-container">
       <h2 className="text-title mb-8 pt-8 md:pt-0">{TechStack.title}</h2>
       <Tabs defaultValue="all" className="w-full">
-        <TabsList className="grid w-full grid-cols-4 md:grid-cols-5 mb-8 animate-fadeUp">
-          <TabsTrigger value="all" className="hidden md:flex">
+        <TabsList className="flex w-full mb-8 animate-fadeUp">
+          <TabsTrigger value="all" className="hidden md:flex flex-1">
             {TechStack.all}
           </TabsTrigger>
-          <TabsTrigger value="frontend">{TechStack.frontend}</TabsTrigger>
-          <TabsTrigger value="backend">{TechStack.backend}</TabsTrigger>
-          <TabsTrigger value="languages">{TechStack.languages}</TabsTrigger>
-          <TabsTrigger value="cloud">{TechStack.cloud}</TabsTrigger>
+          <TabsTrigger value="frontend" className="flex-1">
+            {TechStack.frontend}
+          </TabsTrigger>
+          <TabsTrigger value="backend" className="flex-1">
+            {TechStack.backend}
+          </TabsTrigger>
+          <TabsTrigger value="languages" className="flex-1">
+            {TechStack.languages}
+          </TabsTrigger>
+          <TabsTrigger value="cloud" className="flex-1">
+            {TechStack.cloud}
+          </TabsTrigger>
         </TabsList>
         {["all", "frontend", "backend", "languages", "cloud"].map((tab) => (
           <TabsContent key={tab} value={tab}>
