@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -8,7 +8,6 @@ import Image from "next/image";
 import { categories, techStackList } from "@/constants/techStack";
 import { Locale } from "@/constants/language";
 import { getDictionary } from "@/lib/getDictionary";
-import Loading from "@/app/[lang]/loading";
 
 const TechStack = async ({ lang }: { lang: Locale }) => {
   const { TechStack } = await getDictionary(lang);
@@ -50,43 +49,41 @@ const TechStack = async ({ lang }: { lang: Locale }) => {
                 )
                 .sort((a, b) => b.level - a.level)
                 .map((tech, index) => (
-                  <Suspense fallback={<Loading />} key={index}>
-                    <FadeIn delay={index * 0.05 + 0.3}>
-                      <Card>
-                        <CardContent className="p-6">
-                          <div className="flex items-center justify-between mb-4">
-                            <div className="flex items-center gap-3">
-                              <div className="w-8 h-8">
-                                {/* アイコンのイメージコンポーネントをここに */}
-                                <Image
-                                  src={tech.icon}
-                                  alt="logo"
-                                  height={50}
-                                  width={50}
-                                />
-                              </div>
-                              <h3 className="font-semibold text-lg">
-                                {tech.name}
-                              </h3>
+                  <FadeIn delay={index * 0.05 + 0.3} key={index}>
+                    <Card>
+                      <CardContent className="p-6">
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center gap-3">
+                            <div className="w-8 h-8">
+                              {/* アイコンのイメージコンポーネントをここに */}
+                              <Image
+                                src={tech.icon}
+                                alt="logo"
+                                height={50}
+                                width={50}
+                              />
                             </div>
-                            <Badge
-                              variant={
-                                getLevelPercentage(tech.level) === "Advanced"
-                                  ? "default"
-                                  : getLevelPercentage(tech.level) ===
-                                    "Intermediate"
-                                  ? "secondary"
-                                  : "outline"
-                              }
-                            >
-                              {getLevelPercentage(tech.level)}
-                            </Badge>
+                            <h3 className="font-semibold text-lg">
+                              {tech.name}
+                            </h3>
                           </div>
-                          <Progress value={tech.level} className="h-2" />
-                        </CardContent>
-                      </Card>
-                    </FadeIn>
-                  </Suspense>
+                          <Badge
+                            variant={
+                              getLevelPercentage(tech.level) === "Advanced"
+                                ? "default"
+                                : getLevelPercentage(tech.level) ===
+                                  "Intermediate"
+                                ? "secondary"
+                                : "outline"
+                            }
+                          >
+                            {getLevelPercentage(tech.level)}
+                          </Badge>
+                        </div>
+                        <Progress value={tech.level} className="h-2" />
+                      </CardContent>
+                    </Card>
+                  </FadeIn>
                 ))}
             </div>
           </TabsContent>
