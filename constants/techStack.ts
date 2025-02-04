@@ -47,7 +47,7 @@ export const techStackList: TechStackList[] = [
   },
   {
     name: "Supabase",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg",
     level: 80,
   },
   {
