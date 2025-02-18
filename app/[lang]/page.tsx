@@ -8,6 +8,7 @@ import TechStack from "@/components/section/TechStack";
 import Contact from "@/components/section/Contact";
 import { Locale } from "@/constants/language";
 import StarFieldLoading from "@/components/StarFieldLoading";
+import Blog from "@/components/section/Blog";
 
 const StarField = dynamic(() => import("../../components/StarField"), {
   ssr: false, // サーバーサイドレンダリングを無効化（クライアントサイドのみで実行）
@@ -24,6 +25,7 @@ export default async function Home(props: {
       <HeroSection lang={lang} />
       <AppOverview lang={lang} />
       <TechStack lang={lang} />
+      <Blog />
       <About lang={lang} />
       <Contact />
       <Header />
