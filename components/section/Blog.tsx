@@ -15,7 +15,7 @@ const Blog = async () => {
     console.log(blogs);
 
   return (
-    <section id="about" className="section-container">
+    <section id="blog" className="section-container">
       <FadeIn>
         <h2 className="text-title mb-8 pt-8 md:pt-0">This is Blog Section</h2>
         <h3>

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, Home, Info, Code, Mail, Globe } from "lucide-react";
+import { Menu, X, Home, Info, Code, Mail, Globe, FileText } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   DropdownMenu,
@@ -28,12 +28,14 @@ const Navbar = () => {
       ? [
           { title: "App Overview", href: "#app", icon: Home },
           { title: "Tech Stack", href: "#tech", icon: Code },
+          { title: "Blog", href: "#blog", icon: FileText },
           { title: "About", href: "#about", icon: Info },
           { title: "Contact", href: "#contact", icon: Mail },
         ]
       : [
           { title: "アプリ", href: "#app", icon: Home },
           { title: "技術スタック", href: "#tech", icon: Code },
+          { title: "ブログ", href: "#blog", icon: FileText },
           { title: "プロフィール", href: "#about", icon: Info },
           { title: "お問い合わせ", href: "#contact", icon: Mail },
         ];
