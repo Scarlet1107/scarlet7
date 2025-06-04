@@ -35,7 +35,7 @@ const AppOverview = async ({ lang }: { lang: Locale }) => {
                   alt="icon"
                   width={70}
                   height={70}
-                  className="absolute top-2 right-2"
+                  className="absolute top-2 right-2 rounded"
                 />
               )}
               <CardHeader>
