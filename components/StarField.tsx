@@ -73,7 +73,7 @@ const StarField = () => {
       positions[i * 3 + 1] = pos.y;
       positions[i * 3 + 2] = pos.z;
 
-      // 色をランダム設定 (5% 赤, 5% 青, 5%黄色, 残り75% 白)
+      // 色をランダム設定 (5% 赤, 5% 青, 5%黄色, 残り85% 白)
       const r = Math.random();
       if (r < 0.05) {
         // 赤 (1,0,0)
