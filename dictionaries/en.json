@@ -12,6 +12,13 @@
     "title": "Apps Developed So Far",
     "apps": [
       {
+        "icon": "/scarlet.png",
+        "title": "Scarlet Portfolio",
+        "description": "Developed as a hobby",
+        "content": "The stars floating in the background of this webpage are not a video, but rather 5,000 stars randomly placed and rendered in real-time. About 15% of them are colored stars, adding vibrancy to the background.\nThe source code is publicly available on GitHub, so please take a look if you're interested.",
+        "url": "https://github.com/Scarlet1107/scarlet7"
+      },
+      {
         "icon": "/sugoi-mojisu-counter.png",
         "title": "Sugoi Mojisu Counter",
         "description": "Developed as a hobby",

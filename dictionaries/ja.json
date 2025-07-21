@@ -12,6 +12,13 @@
     "title": "今までに開発したアプリ",
     "apps": [
       {
+        "icon": "/scarlet.png",
+        "title": "Scarlet ポートフォリオ",
+        "description": "趣味で開発",
+        "content": "こちらのWebページ背景に浮かぶ星々は、動画ではなく5,000個の星をランダムに配置し、リアルタイムに演算して描画しています。約15%は色付きの星で、背景に彩りを加えています。\nソースコードはGitHubで公開中ですので、ご興味があればぜひご覧ください。",
+        "url": "https://github.com/Scarlet1107/scarlet7"
+      },
+      {
         "icon": "/sugoi-mojisu-counter.png",
         "title": "すごい文字数カウント",
         "description": "趣味で開発",
