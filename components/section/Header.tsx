@@ -50,7 +50,7 @@ const Navbar = () => {
         <div className="mx-auto">
           <div className="flex items-center justify-between px-4 md:px-0 md:justify-around h-16">
             <Link href="#home" className="text-xl font-bold animate-fadeUp">
-              Scarlet.net
+              Scarlet7.net
             </Link>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
