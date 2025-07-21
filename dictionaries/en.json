@@ -29,8 +29,15 @@
         "icon": "/menhera-todo.png",
         "title": "Menhera Todo",
         "description": "Hackathon project",
-        "content": "This is a goofy todo app we made for a hackathon with the theme \"Goofie Todo App\". I developed it with my teammate. The main character is a menhera girl named Hera-chan. You can do normal todo tasks, but depending on how you use the app, Hera-chan’s mood will change. If you complete your tasks, her affection goes up and she becomes happy. But if you ignore your todos or delete them, her affection drops and she gets mentally unstable. We were inspired by the game \"Needy Girl Overdose\" and wanted to mix a todo app with emotional chaos!",
+        "content": "“Menhera todo” is an app that won first prize at a hackathon with the theme “Goofy Todo App.” You manage tasks alongside a needy girl named Hera-chan: completing tasks raises her affection, while neglecting or deleting them lowers it—eventually triggering a “bad end” with forced account deletion. It’s chaotic but just about usable.",
         "url": "https://menhera-todo.scarlet7.net/"
+      },
+      {
+        "icon": "/paradia.png",
+        "title": "Paradia",
+        "description": "Hackathon project",
+        "content": "Paradia is an SNS-style app that won first prize at the Supporters Geek Sai Hackathon. It’s built on a theme of contradiction: on the surface it looks like a happy utopia, but behind the scenes it’s a dark world with complete information control. Every post is checked and rewritten by the AI “Ordina,” and any negative content is erased. A simple, clear UI pulls users into this unique setting immediately.",
+        "url": "https://paradia.scarlet7.net/"
       }
     ]
   },
