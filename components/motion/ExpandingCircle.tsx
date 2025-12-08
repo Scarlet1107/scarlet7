@@ -15,10 +15,11 @@ const ExpandingCircle: React.FC = () => {
       opacity: 1,
       transition: {
         duration: 2.5,
+        type: "tween" as const,
         ease: [0.32, 0, 0.67, 0],
       },
     },
-  };
+  } as const;
 
   return (
     <div
