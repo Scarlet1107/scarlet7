@@ -11,18 +11,35 @@ const StarField = () => {
     // カメラが (0, 0, 5) にある想定
     const cameraPosition = new THREE.Vector3(0, 0, 5);
     const minDistance = 20; // カメラから20以上離れた位置のみ許可
+    const minXYDistance = 15; // カメラの進行ライン付近を避ける半径
+    const minDistanceSq = minDistance * minDistance;
+    const minXYDistanceSq = minXYDistance * minXYDistance;
 
-    // カメラ周辺 minDist 未満の場合は再度乱数を取り直す
-    function getRandomPositionOutsideCamera(minDist: number): THREE.Vector3 {
-      let x, y, z;
-      const pos = new THREE.Vector3();
+    // カメラ周辺/進行ライン近傍を避けて乱数を生成
+    function getRandomPositionOutsideCamera(): THREE.Vector3 {
+      let x = 0;
+      let y = 0;
+      let z = 0;
+      let dx = 0;
+      let dy = 0;
+      let dz = 0;
+      let attempts = 0;
+
       do {
         x = (Math.random() - 0.5) * 1000;
         y = (Math.random() - 0.5) * 1000;
         z = (Math.random() - 0.5) * 1000;
-        pos.set(x, y, z);
-      } while (pos.distanceTo(cameraPosition) < minDist);
-      return pos;
+        dx = x - cameraPosition.x;
+        dy = y - cameraPosition.y;
+        dz = z - cameraPosition.z;
+        attempts += 1;
+      } while (
+        attempts < 20 &&
+        (dx * dx + dy * dy + dz * dz < minDistanceSq ||
+          dx * dx + dy * dy < minXYDistanceSq)
+      );
+
+      return new THREE.Vector3(x, y, z);
     }
 
     // シーン
@@ -68,7 +85,7 @@ const StarField = () => {
 
     for (let i = 0; i < starCount; i++) {
       // 位置を設定
-      const pos = getRandomPositionOutsideCamera(minDistance);
+      const pos = getRandomPositionOutsideCamera();
       positions[i * 3 + 0] = pos.x;
       positions[i * 3 + 1] = pos.y;
       positions[i * 3 + 2] = pos.z;
@@ -129,7 +146,7 @@ const StarField = () => {
 
         // 閾値を超えたら、カメラ周辺を避けて新たな場所へ再配置
         if (positionsArray[idx + 2] > zThreshold) {
-          const newPos = getRandomPositionOutsideCamera(minDistance);
+          const newPos = getRandomPositionOutsideCamera();
           positionsArray[idx + 0] = newPos.x;
           positionsArray[idx + 1] = newPos.y;
           positionsArray[idx + 2] = newPos.z;
