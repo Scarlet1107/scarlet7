@@ -19,20 +19,6 @@
         "url": "https://github.com/Scarlet1107/scarlet7"
       },
       {
-        "icon": "/sugoi-mojisu-counter.png",
-        "title": "すごい文字数カウント",
-        "description": "趣味で開発",
-        "content": "入力した文字をカウントできます。\n目標文字数を設定することができ、現在の文字数が目標に対してどの程度なのかを視覚化する機能付きです。\nまたAIを搭載しており、入力した文字に対してのアドバイスを無料で受けることができます。",
-        "url": "https://app.scarlet7.net/word-counter"
-      },
-      {
-        "icon": "/tire-quotation-app.jpg",
-        "title": "タイヤ見積もりアプリ",
-        "description": "仕事で開発",
-        "content": "地域の車会社の社長から「毎回見積書をexcelで作るのが大変」という話を聞き、社内アプリとして開発しました。\nタイヤの情報をあらかじめデータベースに入れておき、条件検索をかけることで、誰でも金額の間違えなく同じクオリティの見積書が作れます。",
-        "url": "https://tire.scarlet7.net/"
-      },
-      {
         "icon": "/menhera-todo.png",
         "title": "メンヘラTodo",
         "description": "ハッカソン",
@@ -45,6 +31,20 @@
         "description": "ハッカソン",
         "content": "Paradiaは、サポーターズ技育祭ハッカソンで最優秀賞を獲得したSNS風アプリです。\n矛盾をテーマに、表面上は理想郷に見せかけながら、実際には情報統制が行き届いたディストピア社会を描いています。全ての投稿はAI「オルディナ様」によって検閲・修正され、ネガティブな投稿はすべて抹消。ユーザーを即座に世界観へ引き込むアプリを心がけました。",
         "url": "https://paradia.scarlet7.net/"
+      },
+      {
+        "icon": "/sugoi-mojisu-counter.png",
+        "title": "すごい文字数カウント",
+        "description": "趣味で開発",
+        "content": "入力した文字をカウントできます。\n目標文字数を設定することができ、現在の文字数が目標に対してどの程度なのかを視覚化する機能付きです。\nまたAIを搭載しており、入力した文字に対してのアドバイスを無料で受けることができます。",
+        "url": "https://app.scarlet7.net/word-counter"
+      },
+      {
+        "icon": "/tire-quotation-app.jpg",
+        "title": "タイヤ見積もりアプリ",
+        "description": "仕事で開発",
+        "content": "地域の車会社の社長から「毎回見積書をexcelで作るのが大変」という話を聞き、社内アプリとして開発しました。\nタイヤの情報をあらかじめデータベースに入れておき、条件検索をかけることで、誰でも金額の間違えなく同じクオリティの見積書が作れます。",
+        "url": "https://tire.scarlet7.net/"
       }
     ]
   },

@@ -28,14 +28,15 @@ const AppOverview = async ({ lang }: { lang: Locale }) => {
       <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
         {Apps.map((app, index) => (
           <FadeIn key={index} delay={index * 0.1 + 0.3}>
-            <Card className="relative h-full">
+            <Card className="relative h-full hover:scale-[1.02] transition-transform duration-300">
               {app.icon && (
                 <Image
                   src={app.icon}
                   alt="icon"
                   width={70}
                   height={70}
-                  className="absolute top-2 right-2 rounded"
+                  className="absolute top-2 right-2 rounded pointer-events-none"
+                  draggable={false}
                 />
               )}
               <CardHeader>

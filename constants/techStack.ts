@@ -98,4 +98,5 @@ export const categories = {
   ],
   backend: ["Ruby on Rails", "Laravel", "Python", "tRPC"],
   languages: ["C", "C++", "Java"], // 汎用言語
-  cloud: ["AWS", "Supabase"],};
+  cloud: ["AWS", "Supabase"],
+};

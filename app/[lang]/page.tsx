@@ -23,7 +23,7 @@ export default async function Home(props: {
       <StarField />
       <HeroSection lang={lang} />
       <AppOverview lang={lang} />
-      <TechStack lang={lang} />
+      {/* <TechStack lang={lang} /> */}
       <About lang={lang} />
       <Contact />
       <Header />

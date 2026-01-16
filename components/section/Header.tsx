@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, Home, Info, Code, Mail, Globe } from "lucide-react";
+import { Menu, X, Home, Info, Code, Mail, Globe, Grid, LayoutGrid } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   DropdownMenu,
@@ -26,17 +26,17 @@ const Navbar = () => {
   const items =
     lang === "en"
       ? [
-          { title: "App Overview", href: "#app", icon: Home },
-          { title: "Tech Stack", href: "#tech", icon: Code },
-          { title: "About", href: "#about", icon: Info },
-          { title: "Contact", href: "#contact", icon: Mail },
-        ]
+        { title: "Side Project", href: "#app", icon: LayoutGrid },
+        // { title: "Tech Stack", href: "#tech", icon: Code },
+        { title: "About", href: "#about", icon: Info },
+        { title: "Contact", href: "#contact", icon: Mail },
+      ]
       : [
-          { title: "アプリ", href: "#app", icon: Home },
-          { title: "技術スタック", href: "#tech", icon: Code },
-          { title: "プロフィール", href: "#about", icon: Info },
-          { title: "お問い合わせ", href: "#contact", icon: Mail },
-        ];
+        { title: "個人開発", href: "#app", icon: LayoutGrid },
+        // { title: "技術スタック", href: "#tech", icon: Code },
+        { title: "プロフィール", href: "#about", icon: Info },
+        { title: "お問い合わせ", href: "#contact", icon: Mail },
+      ];
   const language = lang === "en" ? "Language" : "言語";
 
   const switchLanguageText = lang === "en" ? "日本語" : "English";

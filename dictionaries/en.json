@@ -19,20 +19,6 @@
         "url": "https://github.com/Scarlet1107/scarlet7"
       },
       {
-        "icon": "/sugoi-mojisu-counter.png",
-        "title": "Sugoi Mojisu Counter",
-        "description": "Developed as a hobby",
-        "content": "You can count the characters you input.\nYou can set a target number of characters and visualize how close you are to the target.\nIt also has AI that provides free advice on the text you input.",
-        "url": "https://app.scarlet7.net/word-counter"
-      },
-      {
-        "icon": "/tire-quotation-app.jpg",
-        "title": "Tire Quotation App",
-        "description": "Developed for work",
-        "content": "I developed this as an internal app after hearing from the president of a local car company that creating quotations in Excel every time was a hassle.\nBy pre-entering tire information into a database and performing conditional searches, anyone can create quotations with the same quality without making mistakes in the amount.",
-        "url": "https://tire.scarlet7.net/"
-      },
-      {
         "icon": "/menhera-todo.png",
         "title": "Menhera Todo",
         "description": "Hackathon project",
@@ -45,6 +31,20 @@
         "description": "Hackathon project",
         "content": "Paradia is an SNS-style app that won first prize at the Supporters Geek Sai Hackathon. It’s built on a theme of contradiction: on the surface it looks like a happy utopia, but behind the scenes it’s a dark world with complete information control. Every post is checked and rewritten by the AI “Ordina,” and any negative content is erased. A simple, clear UI pulls users into this unique setting immediately.",
         "url": "https://paradia.scarlet7.net/"
+      },
+      {
+        "icon": "/sugoi-mojisu-counter.png",
+        "title": "Sugoi Mojisu Counter",
+        "description": "Developed as a hobby",
+        "content": "You can count the characters you input.\nYou can set a target number of characters and visualize how close you are to the target.\nIt also has AI that provides free advice on the text you input.",
+        "url": "https://app.scarlet7.net/word-counter"
+      },
+      {
+        "icon": "/tire-quotation-app.jpg",
+        "title": "Tire Quotation App",
+        "description": "Developed for work",
+        "content": "I developed this as an internal app after hearing from the president of a local car company that creating quotations in Excel every time was a hassle.\nBy pre-entering tire information into a database and performing conditional searches, anyone can create quotations with the same quality without making mistakes in the amount.",
+        "url": "https://tire.scarlet7.net/"
       }
     ]
   },
